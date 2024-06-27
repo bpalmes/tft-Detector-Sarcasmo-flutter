@@ -15,18 +15,12 @@ public class MainActivity extends FlutterActivity {
                 .setMethodCallHandler(
                         (call, result) -> {
                             if (call.method.equals("getTextFromScreen")) {
-                                // Implementar la lógica para obtener el texto de la pantalla
-                                String text = getTextFromScreen();
-                                result.success(text);
+                                // Configurar el resultado para ser enviado desde el servicio de accesibilidad
+                                MyAccessibilityService.setResult(result);
                             } else {
                                 result.notImplemented();
                             }
                         }
                 );
-    }
-
-    private String getTextFromScreen() {
-        // Implementar la lógica para obtener el texto de la pantalla
-        return "Texto de ejemplo"; // Reemplazar con el texto real obtenido del servicio de accesibilidad
     }
 }
